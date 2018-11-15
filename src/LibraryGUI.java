@@ -34,11 +34,13 @@ public class LibraryGUI extends JFrame implements ActionListener {
 
         createFileMenu();
         createBookMenu();
+        createCustomerMenu();
 
         JMenuBar menuBar = new JMenuBar();
         setJMenuBar(menuBar);
         menuBar.add(fileMenu);
         menuBar.add(bookMenu);
+        menuBar.add(customerMenu);
 
 
     } //end constructor
@@ -72,7 +74,7 @@ public class LibraryGUI extends JFrame implements ActionListener {
         // first, create the menu: then you can start on the items
         bookMenu = new JMenu("Book");
 
-        fileMenu.setBackground(Color.white);
+        bookMenu.setBackground(Color.white);
 
         // create the first item
         item = new JMenuItem("Add");
@@ -90,6 +92,30 @@ public class LibraryGUI extends JFrame implements ActionListener {
         item = new JMenuItem("Reserve");
         item.addActionListener(this);
         bookMenu.add(item);
+
+    }
+
+    public void createCustomerMenu(){
+        JMenuItem item; // declare a re-usable JMenuItem object
+
+        // first, create the menu: then you can start on the items
+        customerMenu = new JMenu("Customer");
+
+        customerMenu.setBackground(Color.white);
+
+        // create the first item
+        item = new JMenuItem("Add");
+        item.addActionListener(this);
+        customerMenu.add(item);
+
+        item = new JMenuItem("Amend");
+        item.addActionListener(this);
+        customerMenu.add(item);
+
+        item = new JMenuItem("Delete");
+        item.addActionListener(this);
+        customerMenu.add(item);
+
 
     }
 

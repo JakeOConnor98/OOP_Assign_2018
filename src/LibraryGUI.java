@@ -1,3 +1,5 @@
+import jdk.nashorn.internal.scripts.JO;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -14,6 +16,7 @@ public class LibraryGUI extends JFrame implements ActionListener {
         lGUI.setVisible(true);
     } //end main
 
+    JPanel p = new JPanel();
     public LibraryGUI() {
         Container cPane;
 
@@ -54,6 +57,12 @@ public class LibraryGUI extends JFrame implements ActionListener {
 
         fileMenu.setBackground(Color.white);
 
+        item = new JMenuItem("Open");        //New
+
+        item.addActionListener(this);
+
+        fileMenu.add(item);
+
         // create the first item
         item = new JMenuItem("Save");
         // make sure the program is listening for clicks: handle them in 'this' class
@@ -66,9 +75,10 @@ public class LibraryGUI extends JFrame implements ActionListener {
 
         item.addActionListener(this);
 
-        fileMenu.add(item); }
+        fileMenu.add(item);
+    }
 
-    public void createBookMenu(){
+    public void createBookMenu() {
         JMenuItem item; // declare a re-usable JMenuItem object
 
         // first, create the menu: then you can start on the items
@@ -95,7 +105,7 @@ public class LibraryGUI extends JFrame implements ActionListener {
 
     }
 
-    public void createCustomerMenu(){
+    public void createCustomerMenu() {
         JMenuItem item; // declare a re-usable JMenuItem object
 
         // first, create the menu: then you can start on the items
@@ -120,19 +130,67 @@ public class LibraryGUI extends JFrame implements ActionListener {
     }
 
 
-
     @Override
     public void actionPerformed(ActionEvent e) {
-        String menuName;
-        String myBook;
-        menuName = e.getActionCommand();
-        myBook = e.getActionCommand();// what's written on the item that was clicked
+        String fileMenuName;
+        String bookMenuName;
+        String customerMenuName;
+
+        fileMenuName = e.getActionCommand();
+        bookMenuName = e.getActionCommand();
+        customerMenuName = e.getActionCommand();
+
+        if (fileMenuName.equals("Open")){
+            
+
+        }
+
+        else if (fileMenuName.equals("Save")){
+
+        }
+
+
         // note the String comparison
-        if (menuName.equals("Quit")) {
-            System.exit(0);
-        } // end if
-        else if (menuName.equals("Add")){
-            JOptionPane.showInputDialog("Please enter name of book");
+        else if (fileMenuName.equals("Exit")) {
+            JOptionPane.showConfirmDialog(null, "Are you sure you want to exit");
+            if (true) {
+                JOptionPane.showMessageDialog(null, "Thank you for visiting: Goodbye!!");
+                System.exit(0);
+            }
+            // end if
+
+            else if (bookMenuName.equals("Add")) {
+                /*JLabel name = new JLabel("Name", JLabel.LEFT);
+                p.setLayout(new FlowLayout());
+                //p.add(name = new JLabel("add"));*/
+
+                //JOptionPane.showInputDialog("Please enter name of book");
+            }
+
+            else if (bookMenuName.equals("Amend")){
+
+            }
+
+            else if (bookMenuName.equals("Delete")){
+
+            }
+
+            else if (bookMenuName.equals("Reserve")){
+
+            }
+
+            else if (customerMenuName.equals("Add")){
+
+            }
+
+            else if (customerMenuName.equals("Amend")){
+
+            }
+
+            else if (customerMenuName.equals("Delete")){
+
+            }
+
 
         }
     }

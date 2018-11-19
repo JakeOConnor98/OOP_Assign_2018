@@ -1,5 +1,3 @@
-import jdk.nashorn.internal.scripts.JO;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -141,7 +139,7 @@ public class LibraryGUI extends JFrame implements ActionListener {
         customerMenuName = e.getActionCommand();
 
         if (fileMenuName.equals("Open")){
-            
+
 
         }
 
@@ -160,38 +158,195 @@ public class LibraryGUI extends JFrame implements ActionListener {
             // end if
 
             else if (bookMenuName.equals("Add")) {
-                /*JLabel name = new JLabel("Name", JLabel.LEFT);
-                p.setLayout(new FlowLayout());
-                //p.add(name = new JLabel("add"));*/
+                JOptionPane.showConfirmDialog(null, "Are you sure you want to add a book?");
+                if (true) {
 
-                //JOptionPane.showInputDialog("Please enter name of book");
+
+
+                  addBookFrame();
+
+
+
+
+                }
             }
 
             else if (bookMenuName.equals("Amend")){
+                JOptionPane.showConfirmDialog(null, "Are you sure you want to add a book?");
+                if (true) {
+
+                    amendBookFrame();
+
+                }
 
             }
 
             else if (bookMenuName.equals("Delete")){
+                JOptionPane.showConfirmDialog(null, "Are you sure you want to delete a book?");
+                if (true) {
+
+                    deleteBookFrame();
+                }
 
             }
 
             else if (bookMenuName.equals("Reserve")){
+                JOptionPane.showConfirmDialog(null, "Are you sure you want to reserve a book?");
+                if (true) {
+
+                    reserveBookFrame();
+
+                }
 
             }
 
             else if (customerMenuName.equals("Add")){
+                JOptionPane.showConfirmDialog(null, "Are you sure you want to add a customer?");
+                if (true) {
+
+                    addCustomerFrame();
+
+                }
 
             }
 
             else if (customerMenuName.equals("Amend")){
+                JOptionPane.showConfirmDialog(null, "Are you sure you want to amend a customer?");
+                if (true) {
+
+                    amendCustomerFrame();
+
+                }
 
             }
 
             else if (customerMenuName.equals("Delete")){
+                JOptionPane.showConfirmDialog(null, "Are you sure you want to delete a customer?");
+                if (true) {
+
+                    deleteCustomerFrame();
+
+                }
 
             }
 
 
         }
     }
+
+
+
+
+    private void addBookFrame() {
+
+
+        JFrame jFrame = new JFrame();
+        String header = "Add Book";
+        jFrame.setTitle(header);
+        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jFrame.setVisible(true);
+        JPanel jp = new JPanel();
+        jFrame.add(jp);
+        JLabel title = new JLabel("Title");
+        jp.add(title);
+        JTextField jtf = new JTextField();
+        jtf.setBounds(110,130,80,40);
+        jtf.addActionListener(this);
+        jp.add(jtf);
+
+
+        JLabel author = new JLabel("Author");
+        jp.add(author);
+        jtf = new JTextField();
+        jtf.setBounds(110,130,80,40);
+        jtf.addActionListener(this);
+        jp.add(jtf);
+
+
+        JLabel isbn = new JLabel("ISBN");
+        jp.add(isbn);
+        jtf = new JTextField();
+        jtf.setBounds(110,130,80,40);
+        jtf.addActionListener(this);
+        jp.add(jtf);
+
+        JButton addBook = new JButton("Add Book");
+        jp.add(addBook);
+
+
+    }
+
+    private void amendBookFrame() {
+
+
+
+
+    }
+
+    private void deleteBookFrame() {
+
+
+    }
+
+
+    private void reserveBookFrame() {
+
+
+    }
+
+
+    private void addCustomerFrame() {
+
+        JFrame jFrame = new JFrame();
+        String header = "Add Customer";
+        jFrame.setTitle(header);
+        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jFrame.setVisible(true);
+        JPanel jp = new JPanel();
+        jFrame.add(jp);
+        JLabel name = new JLabel("Name");
+        jp.add(name);
+        JTextField jtf = new JTextField();
+        jtf.setBounds(110,130,80,40);
+        jtf.addActionListener(this);
+        jp.add(jtf);
+
+
+        JLabel address = new JLabel("Address");
+        jp.add(address);
+        jtf = new JTextField();
+        jtf.setBounds(110,130,80,40);
+        jtf.addActionListener(this);
+        jp.add(jtf);
+
+
+        JLabel isbn = new JLabel("ISBN");
+        jp.add(isbn);
+        jtf = new JTextField();
+        jtf.setBounds(110,130,80,40);
+        jtf.addActionListener(this);
+        jp.add(jtf);
+
+        JButton addCustomer = new JButton("Add Customer");
+        jp.add(addCustomer);
+
+
+    }
+
+
+    private void amendCustomerFrame() {
+
+
+
+
+    }
+
+    private void deleteCustomerFrame() {
+
+
+    }
+
+
+
+
 }//end class

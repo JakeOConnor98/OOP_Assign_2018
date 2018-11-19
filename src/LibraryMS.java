@@ -23,6 +23,14 @@ public abstract class LibraryMS {
 
     }
 
+    public static void addCustomer(){
+
+    }
+
+    public static void addBook(){
+
+    }
+
     /*public static void SaveBooks(ArrayList<Book> books){
         File file = new File("Book.dat");
         FileOutputStream fos = new FileOutputStream(file);

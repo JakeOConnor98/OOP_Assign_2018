@@ -1,7 +1,10 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
 
 public class LibraryGUI extends JFrame implements ActionListener {
 
@@ -43,6 +46,13 @@ public class LibraryGUI extends JFrame implements ActionListener {
         menuBar.add(bookMenu);
         menuBar.add(customerMenu);
 
+        JLabel library = new JLabel("Library Management System");
+        library.setFont(new Font("Serif",Font.PLAIN, 30));
+        cPane.add(library);
+
+        ImageIcon icon = new ImageIcon("bookshelf.jpg");
+        JLabel label = new JLabel(icon);
+        cPane.add(label);
 
     } //end constructor
 
@@ -85,19 +95,19 @@ public class LibraryGUI extends JFrame implements ActionListener {
         bookMenu.setBackground(Color.white);
 
         // create the first item
-        item = new JMenuItem("Add");
+        item = new JMenuItem("Add Book");
         item.addActionListener(this);
         bookMenu.add(item);
 
-        item = new JMenuItem("Amend");
+        item = new JMenuItem("Amend Book");
         item.addActionListener(this);
         bookMenu.add(item);
 
-        item = new JMenuItem("Delete");
+        item = new JMenuItem("Delete Book");
         item.addActionListener(this);
         bookMenu.add(item);
 
-        item = new JMenuItem("Reserve");
+        item = new JMenuItem("Reserve Book");
         item.addActionListener(this);
         bookMenu.add(item);
 
@@ -112,15 +122,15 @@ public class LibraryGUI extends JFrame implements ActionListener {
         customerMenu.setBackground(Color.white);
 
         // create the first item
-        item = new JMenuItem("Add");
+        item = new JMenuItem("Add Customer");
         item.addActionListener(this);
         customerMenu.add(item);
 
-        item = new JMenuItem("Amend");
+        item = new JMenuItem("Amend Customer");
         item.addActionListener(this);
         customerMenu.add(item);
 
-        item = new JMenuItem("Delete");
+        item = new JMenuItem("Delete Customer");
         item.addActionListener(this);
         customerMenu.add(item);
 
@@ -144,6 +154,8 @@ public class LibraryGUI extends JFrame implements ActionListener {
         }
 
         else if (fileMenuName.equals("Save")){
+            JOptionPane.showConfirmDialog(null, "Are you sure you want to save details?");
+
 
         }
 
@@ -155,9 +167,13 @@ public class LibraryGUI extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(null, "Thank you for visiting: Goodbye!!");
                 System.exit(0);
             }
+        }
+
+
+
             // end if
 
-            else if (bookMenuName.equals("Add")) {
+             if (bookMenuName.equals("Add Book")) {
                 JOptionPane.showConfirmDialog(null, "Are you sure you want to add a book?");
                 if (true) {
 
@@ -166,13 +182,14 @@ public class LibraryGUI extends JFrame implements ActionListener {
                   addBookFrame();
 
 
-
-
+                }
+                else {
+                    return;
                 }
             }
 
-            else if (bookMenuName.equals("Amend")){
-                JOptionPane.showConfirmDialog(null, "Are you sure you want to add a book?");
+            else if (bookMenuName.equals("Amend Book")){
+                JOptionPane.showConfirmDialog(null, "Are you sure you want to amend a book?");
                 if (true) {
 
                     amendBookFrame();
@@ -181,7 +198,7 @@ public class LibraryGUI extends JFrame implements ActionListener {
 
             }
 
-            else if (bookMenuName.equals("Delete")){
+            else if (bookMenuName.equals("Delete Book")){
                 JOptionPane.showConfirmDialog(null, "Are you sure you want to delete a book?");
                 if (true) {
 
@@ -190,7 +207,7 @@ public class LibraryGUI extends JFrame implements ActionListener {
 
             }
 
-            else if (bookMenuName.equals("Reserve")){
+            else if (bookMenuName.equals("Reserve Book")) {
                 JOptionPane.showConfirmDialog(null, "Are you sure you want to reserve a book?");
                 if (true) {
 
@@ -200,7 +217,7 @@ public class LibraryGUI extends JFrame implements ActionListener {
 
             }
 
-            else if (customerMenuName.equals("Add")){
+             if (customerMenuName.equals("Add Customer")){
                 JOptionPane.showConfirmDialog(null, "Are you sure you want to add a customer?");
                 if (true) {
 
@@ -210,7 +227,7 @@ public class LibraryGUI extends JFrame implements ActionListener {
 
             }
 
-            else if (customerMenuName.equals("Amend")){
+            else if (customerMenuName.equals("Amend Customer")){
                 JOptionPane.showConfirmDialog(null, "Are you sure you want to amend a customer?");
                 if (true) {
 
@@ -220,7 +237,7 @@ public class LibraryGUI extends JFrame implements ActionListener {
 
             }
 
-            else if (customerMenuName.equals("Delete")){
+            else  if (customerMenuName.equals("Delete Customer")){
                 JOptionPane.showConfirmDialog(null, "Are you sure you want to delete a customer?");
                 if (true) {
 
@@ -232,7 +249,6 @@ public class LibraryGUI extends JFrame implements ActionListener {
 
 
         }
-    }
 
 
 
@@ -243,22 +259,26 @@ public class LibraryGUI extends JFrame implements ActionListener {
         JFrame jFrame = new JFrame();
         String header = "Add Book";
         jFrame.setTitle(header);
+        jFrame.setSize(500,500);
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jFrame.setVisible(true);
         JPanel jp = new JPanel();
         jFrame.add(jp);
         JLabel title = new JLabel("Title");
+        title.setVerticalAlignment(JLabel.BOTTOM);
         jp.add(title);
         JTextField jtf = new JTextField();
+        jtf.setSize(1150,100);
         jtf.setBounds(110,130,80,40);
         jtf.addActionListener(this);
         jp.add(jtf);
 
 
         JLabel author = new JLabel("Author");
+        author.setVerticalAlignment(JLabel.BOTTOM);
         jp.add(author);
         jtf = new JTextField();
-        jtf.setBounds(110,130,80,40);
+        //jtf.setBounds(110,130,80,40);
         jtf.addActionListener(this);
         jp.add(jtf);
 
@@ -271,12 +291,19 @@ public class LibraryGUI extends JFrame implements ActionListener {
         jp.add(jtf);
 
         JButton addBook = new JButton("Add Book");
+
         jp.add(addBook);
 
 
     }
 
     private void amendBookFrame() {
+        JFrame jFrame = new JFrame();
+        String header = "Amend Book";
+        jFrame.setTitle(header);
+        jFrame.setSize(500,500);
+        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jFrame.setVisible(true);
 
 
 
@@ -284,12 +311,24 @@ public class LibraryGUI extends JFrame implements ActionListener {
     }
 
     private void deleteBookFrame() {
+        JFrame jFrame = new JFrame();
+        String header = "Delete Book";
+        jFrame.setTitle(header);
+        jFrame.setSize(500,500);
+        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jFrame.setVisible(true);
 
 
     }
 
 
     private void reserveBookFrame() {
+        JFrame jFrame = new JFrame();
+        String header = "Reserve Book";
+        jFrame.setTitle(header);
+        jFrame.setSize(500,500);
+        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jFrame.setVisible(true);
 
 
     }
@@ -300,6 +339,7 @@ public class LibraryGUI extends JFrame implements ActionListener {
         JFrame jFrame = new JFrame();
         String header = "Add Customer";
         jFrame.setTitle(header);
+        jFrame.setSize(500,500);
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jFrame.setVisible(true);
         JPanel jp = new JPanel();
@@ -335,6 +375,12 @@ public class LibraryGUI extends JFrame implements ActionListener {
 
 
     private void amendCustomerFrame() {
+        JFrame jFrame = new JFrame();
+        String header = "Amend Customer";
+        jFrame.setTitle(header);
+        jFrame.setSize(500,500);
+        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jFrame.setVisible(true);
 
 
 
@@ -342,6 +388,12 @@ public class LibraryGUI extends JFrame implements ActionListener {
     }
 
     private void deleteCustomerFrame() {
+        JFrame jFrame = new JFrame();
+        String header = "Amend Customer";
+        jFrame.setTitle(header);
+        jFrame.setSize(500,500);
+        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jFrame.setVisible(true);
 
 
     }

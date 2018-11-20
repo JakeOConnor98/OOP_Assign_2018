@@ -162,10 +162,15 @@ public class LibraryGUI extends JFrame implements ActionListener {
 
         // note the String comparison
         else if (fileMenuName.equals("Exit")) {
-            JOptionPane.showConfirmDialog(null, "Are you sure you want to exit");
-            if (true) {
+            int returnValue;
+            returnValue = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit", "Are You Sure", JOptionPane.YES_NO_OPTION);
+            if (returnValue == JOptionPane.YES_OPTION) {
                 JOptionPane.showMessageDialog(null, "Thank you for visiting: Goodbye!!");
                 System.exit(0);
+            }
+
+            else {
+                return;
             }
         }
 
@@ -174,76 +179,46 @@ public class LibraryGUI extends JFrame implements ActionListener {
             // end if
 
              if (bookMenuName.equals("Add Book")) {
-                JOptionPane.showConfirmDialog(null, "Are you sure you want to add a book?");
+
                 if (true) {
-
-
 
                   addBookFrame();
 
-
                 }
-                else {
-                    return;
-                }
-            }
+             }
 
             else if (bookMenuName.equals("Amend Book")){
-                JOptionPane.showConfirmDialog(null, "Are you sure you want to amend a book?");
-                if (true) {
 
                     amendBookFrame();
-
-                }
 
             }
 
             else if (bookMenuName.equals("Delete Book")){
-                JOptionPane.showConfirmDialog(null, "Are you sure you want to delete a book?");
-                if (true) {
 
                     deleteBookFrame();
-                }
-
             }
 
             else if (bookMenuName.equals("Reserve Book")) {
-                JOptionPane.showConfirmDialog(null, "Are you sure you want to reserve a book?");
-                if (true) {
 
                     reserveBookFrame();
-
-                }
 
             }
 
              if (customerMenuName.equals("Add Customer")){
-                JOptionPane.showConfirmDialog(null, "Are you sure you want to add a customer?");
-                if (true) {
 
                     addCustomerFrame();
-
-                }
 
             }
 
             else if (customerMenuName.equals("Amend Customer")){
-                JOptionPane.showConfirmDialog(null, "Are you sure you want to amend a customer?");
-                if (true) {
 
                     amendCustomerFrame();
-
-                }
 
             }
 
             else  if (customerMenuName.equals("Delete Customer")){
-                JOptionPane.showConfirmDialog(null, "Are you sure you want to delete a customer?");
-                if (true) {
 
                     deleteCustomerFrame();
-
-                }
 
             }
 
@@ -294,6 +269,29 @@ public class LibraryGUI extends JFrame implements ActionListener {
 
         jp.add(addBook);
 
+        if(addBook.getModel().isPressed()){
+            JOptionPane.showConfirmDialog(null, "Are you sure you want to add a book?", "Are You Sure", JOptionPane.YES_NO_OPTION);
+        }
+
+        JMenuItem item; // declare a re-usable JMenuItem object
+
+        // first, create the menu: then you can start on the items
+        fileMenu = new JMenu("File");
+
+        fileMenu.setBackground(Color.white);
+
+        // create the first item
+        item = new JMenuItem("Exit");
+        item.addActionListener(this);
+        fileMenu.add(item);
+
+        if (fileMenu.equals("Exit")){
+            JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?");
+
+        }
+
+
+
 
     }
 
@@ -317,6 +315,16 @@ public class LibraryGUI extends JFrame implements ActionListener {
         jFrame.setSize(500,500);
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jFrame.setVisible(true);
+        JPanel jp = new JPanel();
+        jFrame.add(jp);
+
+        JButton deleteBook = new JButton("Delete Book");
+
+        jp.add(deleteBook);
+
+        if(deleteBook.getModel().isPressed()){
+            JOptionPane.showConfirmDialog(null, "Are you sure you want to delete a book?", "Are You Sure", JOptionPane.YES_NO_OPTION);
+        }
 
 
     }
@@ -329,6 +337,18 @@ public class LibraryGUI extends JFrame implements ActionListener {
         jFrame.setSize(500,500);
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jFrame.setVisible(true);
+        JPanel jp = new JPanel();
+        jFrame.add(jp);
+
+        JButton reserveBook = new JButton("Reserve Book");
+
+        jp.add(reserveBook);
+
+        if(reserveBook.getModel().isPressed()){
+            JOptionPane.showConfirmDialog(null, "Are you sure you want to reserve this book?", "Are You Sure", JOptionPane.YES_NO_OPTION);
+        }
+
+
 
 
     }
@@ -370,6 +390,10 @@ public class LibraryGUI extends JFrame implements ActionListener {
         JButton addCustomer = new JButton("Add Customer");
         jp.add(addCustomer);
 
+        if(addCustomer.getModel().isPressed()){
+            JOptionPane.showConfirmDialog(null, "Are you sure you want to add a customer?", "Are You Sure", JOptionPane.YES_NO_OPTION);
+        }
+
 
     }
 
@@ -395,10 +419,17 @@ public class LibraryGUI extends JFrame implements ActionListener {
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jFrame.setVisible(true);
 
+        JPanel jp = new JPanel();
+        jFrame.add(jp);
+
+        JButton deleteCustomer = new JButton("Delete Customer");
+
+        jp.add(deleteCustomer);
+
+        if(deleteCustomer.getModel().isPressed()){
+            JOptionPane.showConfirmDialog(null, "Are you sure you want to delete a customer?", "Are You Sure", JOptionPane.YES_NO_OPTION);
+        }
+
 
     }
-
-
-
-
 }//end class

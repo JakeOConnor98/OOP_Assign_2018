@@ -2,9 +2,11 @@ import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
 
+
 public abstract class LibraryMS {
     public static void main(String[] args) {
-        ArrayList<Book> books = new ArrayList<>(); //will only accept books in the array
+        ArrayList<Book> books = new ArrayList<>();
+        //will only accept books in the array
         ArrayList<Customer> customers = new ArrayList<>(); //will only accept customers in the array
 
 
@@ -21,6 +23,9 @@ public abstract class LibraryMS {
         JOptionPane.showMessageDialog(null, jta);
         JOptionPane.showMessageDialog(null, jta2);
 
+        Book b = new Book();
+        books.add(b);
+
     }
 
     public static void addCustomer(){
@@ -28,7 +33,6 @@ public abstract class LibraryMS {
     }
 
     public static void addBook(){
-
     }
 
     /*public static void SaveBooks(ArrayList<Book> books){

@@ -48,6 +48,6 @@ public class Customer extends LibraryMS {
     }
 
     public String toString(){
-        return "Name: " + getName() + "Address: " + getAddress() +"\nPPS Number: " + getPps();
+        return "Name: " + getName() + "Address: " + getAddress() +"\nPPS Number: " + getPps() + "\nPhone Number: " + getPhone();
     }
 }

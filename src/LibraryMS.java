@@ -28,47 +28,117 @@ public abstract class LibraryMS {
 
     }
 
-    public static void addCustomer(){
+    public static void addBook(Book book){
+
+        Book b = new Book();
+        b.addBook(b);
 
     }
 
-    public static void addBook(){
+    public static void amendBook(Book amendBook){
+
     }
 
-    /*public static void SaveBooks(ArrayList<Book> books){
-        File file = new File("Book.dat");
-        FileOutputStream fos = new FileOutputStream(file);
-        ObjectOutputStream oos = new ObjectOutputStream(fos);
-        oos.writeObject(books);
-        oos.close();
+    public static void deleteBook(Book deleteBook){
+
     }
 
-    public static void OpenBooks(){
-        File file = new File("Book.dat");
-        FileInputStream fis = new FileInputStream(file);
-        ObjectInputStream ois = new ObjectInputStream(fis);
-        ArrayList<Book> books = ois.readObject();
-        ois.close();
+    public static void reserveBook(Book reserveBook){
+
     }
+
+    public static void addCustomer(Customer addCustomer){
+
+    }
+
+    public static void amendCustomer(Customer amendCustomer){
+
+    }
+
+    public static void deleteCustomer(Customer deleteCustomer){
+
+    }
+
+
+
+
+    public static void SaveBooks(ArrayList<Book> books){
+       try{
+           File file = new File("Book.dat");
+           FileOutputStream fos = new FileOutputStream(file);
+           ObjectOutputStream oos = new ObjectOutputStream(fos);
+           oos.writeObject(books);
+           oos.close();
+       }
+
+       catch (IOException e){
+           JOptionPane.showMessageDialog(null, "Problem saving file.");
+           return;
+       }
+
+    }
+
+
+    public static void OpenBooks() {
+        try {
+            File file = new File("Book.dat");
+            FileInputStream fis = new FileInputStream(file);
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            //ArrayList<Book> books = ois.readObject();
+            ois.close();
+        }
+
+        catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Problem opening book file.");
+            return;
+        }
+
+        /*catch (FileNotFoundException e){
+            JOptionPane.showMessageDialog(null, "Book file not found.");
+            return;
+        }*/
+    }
+
+
 
     public static void SaveCustomers(ArrayList<Customer> customers){
-        File file = new File("Customer.dat");
-        FileOutputStream fos = new FileOutputStream(file);
-        ObjectOutputStream oos = new ObjectOutputStream(fos);
-        oos.writeObject(customers);
-        oos.close();
+        try{
+            File file = new File("Customer.dat");
+            FileOutputStream fos = new FileOutputStream(file);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(customers);
+            oos.close();
+        }
+
+        catch (IOException e){
+            JOptionPane.showMessageDialog(null, "Problem opening customer file.");
+            return;
+
+        }
+
     }
 
     public static void OpenCustomers(){
-        File file = new File("Customer.dat");
-        FileInputStream fis = new FileInputStream(file);
-        ObjectInputStream ois = new ObjectInputStream(fis);
-        ArrayList<Customer> customers = ois.readObject();
-        ois.close();
-    }*/
+        try{
+            File file = new File("Customer.dat");
+            FileInputStream fis = new FileInputStream(file);
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            //ArrayList<Customer> customers = ois.readObject();
+            ois.close();
+        }
+
+        catch (IOException e){
+            JOptionPane.showMessageDialog(null, "Problem opening customer file.");
+            return;
+        }
+
+        /*catch (FileNotFoundException e){
+            JOptionPane.showMessageDialog(null, "Customer file not found.");
+            return;
+        }*/
 
 
 
-
+    }
 
 }

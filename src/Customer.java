@@ -1,8 +1,11 @@
+import java.util.ArrayList;
+
 public class Customer extends LibraryMS {
     private String name;
     private String address;
     private int pps;
     private int phone;
+    ArrayList<Book> books = new ArrayList<Book>();
 
     public String getName() {
         return name;

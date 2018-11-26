@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="24.757142857142867" y="0.0">Customer</node>
+    <node x="82.60952380952381" y="434.0">LibraryMS</node>
+    <node x="0.0" y="778.0">Book</node>
+    <node x="87.52380952380952" y="1256.0">LibraryGUI</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="LibraryGUI" target="LibraryMS">
+      <point x="84.66666666666669" y="-203.0" />
+      <point x="299.1904761904762" y="1231.0" />
+      <point x="312.5" y="1231.0" />
+      <point x="312.5" y="753.0" />
+      <point x="341.6095238095238" y="753.0" />
+      <point x="111.0" y="147.0" />
+    </edge>
+    <edge source="Book" target="LibraryMS">
+      <point x="0.0" y="-214.0" />
+      <point x="151.0" y="753.0" />
+      <point x="119.60952380952381" y="753.0" />
+      <point x="-111.0" y="147.0" />
+    </edge>
+    <edge source="LibraryMS" target="Customer">
+      <point x="-74.0" y="-147.0" />
+      <point x="156.6095238095238" y="409.0" />
+      <point x="173.50714285714287" y="409.0" />
+      <point x="29.75" y="192.0" />
+    </edge>
+    <edge source="LibraryGUI" target="Book">
+      <point x="-84.66666666666669" y="-203.0" />
+      <point x="129.85714285714283" y="1231.0" />
+      <point x="75.5" y="1231.0" />
+      <point x="-75.5" y="214.0" />
+    </edge>
+    <edge source="LibraryMS" target="Book">
+      <point x="-37.0" y="147.0" />
+      <point x="193.6095238095238" y="753.0" />
+      <point x="211.39999999999998" y="753.0" />
+      <point x="60.39999999999998" y="-214.0" />
+    </edge>
+    <edge source="Customer" target="LibraryMS">
+      <point x="89.25" y="192.0" />
+      <point x="233.00714285714287" y="409.0" />
+      <point x="304.6095238095238" y="409.0" />
+      <point x="74.0" y="-147.0" />
+    </edge>
+    <edge source="Customer" target="Book">
+      <point x="-29.75" y="192.0" />
+      <point x="114.00714285714287" y="409.0" />
+      <point x="72.10952380952381" y="409.0" />
+      <point x="72.10952380952381" y="753.0" />
+      <point x="90.6" y="753.0" />
+      <point x="-60.400000000000006" y="-214.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="0.0" y="386.5" />
+  <SelectedNodes>
+    <node>Customer</node>
+    <node>LibraryMS</node>
+    <node>Book</node>
+    <node>LibraryGUI</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
